@@ -1,4 +1,4 @@
-# ARJC.ME
+# ARJC visit my (site)[https://www.arjc.me]
 ```(imagine doing that wierd github page analysis thing on your github page yuck!)```
 ## Name: Arjun M L
 ## Location: Kochi, Kerala
