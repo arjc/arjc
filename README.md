@@ -1,5 +1,3 @@
-## 🖥 Live Terminal
-
 ```bash
 <!--START_SECTION:terminal-->
 Loading...
