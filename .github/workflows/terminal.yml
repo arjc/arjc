@@ -1,13 +1,12 @@
-
-Paste this:
-
-```yaml
 name: Update Terminal Output
 
 on:
   schedule:
     - cron: "0 * * * *"   # every hour
   workflow_dispatch:
+
+permissions:
+  contents: write   # 🔴 REQUIRED to push changes
 
 jobs:
   update-readme:
@@ -17,12 +16,28 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Run bash command
-        run: ./achufetch.sh
+      - name: Install dependencies (if your script needs any)
+        run: sudo apt-get update
+
+      - name: Make script executable and run
+        run: |
+          chmod +x .github/workflows/achufetch.sh
+          .github/workflows/achufetch.sh > output.txt
 
       - name: Inject into README
         run: |
-          awk '/<!--START_SECTION:terminal-->/{flag=1;print;system("cat output.txt");next}/<!--END_SECTION:terminal-->/{flag=0}flag==0' README.md > README.new.md
+          awk '
+          /<!--START_SECTION:terminal-->/ {
+              print
+              system("cat output.txt")
+              in_section=1
+              next
+          }
+          /<!--END_SECTION:terminal-->/ {
+              in_section=0
+          }
+          in_section==0 { print }
+          ' README.md > README.new.md
           mv README.new.md README.md
 
       - name: Commit changes
