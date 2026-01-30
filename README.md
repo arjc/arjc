@@ -1,1 +1,1 @@
-![Loading...](https://github.com/arjc/arjc/achufetch.png)
+![Loading...](https://github.com/arjc/arjc/blob/main/achufetch.png)
