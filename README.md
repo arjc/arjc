@@ -1,26 +1,8 @@
-# 😺 ARJUN M LIJI - ARJC
-### Visit My Website
-### =============> www.arjc.me
-
-## ABOUT ME
-### Name: Arjun M L
-### Location: Kochi, Kerala
-### Age: 19
-### Speaks: English, Malayalam, Hindi
-
-<br />
-
-**`(imagine doing that wierd github page analysis thing on your github page yuck!)`**
-
-![](https://github-readme-stats.vercel.app/api?username=arjc&theme=&hide_border=true&include_all_commits=false&count_private=false)<br/>
-![](https://nirzak-streak-stats.vercel.app/?user=arjc&theme=&hide_border=true)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=arjc&theme=&hide_border=true&include_all_commits=false&count_private=false&layout=compact)
-
 ```
 achufetch
 v1.2 2026
                unnuuunuuunnujujjuna                 _____________________ [ArjunLiji@ARJC] _____________________
-            nuuuuuujjjujun    nnnnurjun
+            nuuuuuujjjujun    nnnnurjun             . Website: .................................... www.arjc.me
          rjnnurrjunnuuuuunnn  n  nn  unu            . OS: ........ Windows 10, ArchJun (Arch Linux), Android 16
         ujnnnujajnjjjuuunnnjjnn        nn           . Uptime: ...................................... 226 Months
         nnunujjn rrjrjjarjruunnuun     nju          . IDE: .................................. VS Code, GNU Nano
@@ -44,3 +26,17 @@ v1.2 2026
                  ...............
                    .........
 ```
+
+<!-- ## ABOUT ME
+### Name: Arjun M L
+### Location: Kochi, Kerala
+### Age: 19
+### Speaks: English, Malayalam, Hindi
+
+<br />
+
+**`(imagine doing that wierd github page analysis thing on your github page yuck!)`** -->
+
+<!-- ![](https://github-readme-stats.vercel.app/api?username=arjc&theme=&hide_border=true&include_all_commits=false&count_private=false)<br/>
+![](https://nirzak-streak-stats.vercel.app/?user=arjc&theme=&hide_border=true)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=arjc&theme=&hide_border=true&include_all_commits=false&count_private=false&layout=compact) -->
