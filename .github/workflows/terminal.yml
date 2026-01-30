@@ -1,49 +1,38 @@
 name: Update Terminal Output
 
 on:
-  schedule:
-    - cron: "0 * * * *"   # every hour
   workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"
 
 permissions:
-  contents: write   # 🔴 REQUIRED to push changes
+  contents: write
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install dependencies (if your script needs any)
-        run: sudo apt-get update
-
-      - name: Make script executable and run
+      - name: Generate output
         run: |
-          chmod +x .github/workflows/achufetch.sh
-          .github/workflows/achufetch.sh > output.txt
+          echo "\$ date" > output.txt
+          date >> output.txt
 
       - name: Inject into README
         run: |
           awk '
-          /<!--START_SECTION:terminal-->/ {
-              print
-              system("cat output.txt")
-              in_section=1
-              next
-          }
-          /<!--END_SECTION:terminal-->/ {
-              in_section=0
-          }
-          in_section==0 { print }
+          /<!--START_SECTION:terminal-->/ {print; system("cat output.txt"); in=1; next}
+          /<!--END_SECTION:terminal-->/ {in=0}
+          in==0 {print}
           ' README.md > README.new.md
           mv README.new.md README.md
 
-      - name: Commit changes
+      - name: Commit
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "actions@github.com"
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
           git add README.md
-          git commit -m "Updated terminal output" || echo "No changes"
+          git commit -m "update" || echo "no change"
           git push
