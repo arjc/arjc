@@ -20,14 +20,21 @@ jobs:
           echo "\$ date" > output.txt
           date >> output.txt
 
-      - name: Inject into README
+        - name: Inject into README
         run: |
-          awk '
-          /<!--START_SECTION:terminal-->/ {print; system("cat output.txt"); in=1; next}
-          /<!--END_SECTION:terminal-->/ {in=0}
-          in==0 {print}
+          START="<!--START_SECTION:terminal-->"
+          END="<!--END_SECTION:terminal-->"
+
+          OUTPUT=$(cat output.txt)
+
+          awk -v start="$START" -v end="$END" -v repl="$OUTPUT" '
+          $0 ~ start {print; print repl; skip=1; next}
+          $0 ~ end {skip=0}
+          !skip {print}
           ' README.md > README.new.md
+
           mv README.new.md README.md
+
 
       - name: Commit
         run: |

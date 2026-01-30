@@ -95,5 +95,5 @@ EOF
 
 # ===== MERGE LEFT + RIGHT =====
 paste <(echo "$ascii") <(echo "$info") | while IFS=$'\t' read -r left right; do
-    printf "${GREEN}%-45s${RESET} %b\n" "$left" "$right"
+    printf "%-45s %b\n" "$left" "$right"
 done
